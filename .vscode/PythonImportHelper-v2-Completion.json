@@ -1,0 +1,408 @@
+[
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "matplotlib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib",
+        "description": "matplotlib",
+        "detail": "matplotlib",
+        "documentation": {}
+    },
+    {
+        "label": "matplotlib.pyplot",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib.pyplot",
+        "description": "matplotlib.pyplot",
+        "detail": "matplotlib.pyplot",
+        "documentation": {}
+    },
+    {
+        "label": "signal",
+        "importPath": "scipy",
+        "description": "scipy",
+        "isExtraImport": true,
+        "detail": "scipy",
+        "documentation": {}
+    },
+    {
+        "label": "wavfile",
+        "importPath": "scipy.io",
+        "description": "scipy.io",
+        "isExtraImport": true,
+        "detail": "scipy.io",
+        "documentation": {}
+    },
+    {
+        "label": "cv2",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "cv2",
+        "description": "cv2",
+        "detail": "cv2",
+        "documentation": {}
+    },
+    {
+        "label": "heapq",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "heapq",
+        "description": "heapq",
+        "detail": "heapq",
+        "documentation": {}
+    },
+    {
+        "label": "Counter",
+        "importPath": "collections",
+        "description": "collections",
+        "isExtraImport": true,
+        "detail": "collections",
+        "documentation": {}
+    },
+    {
+        "label": "concurrent.futures",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "concurrent.futures",
+        "description": "concurrent.futures",
+        "detail": "concurrent.futures",
+        "documentation": {}
+    },
+    {
+        "label": "threading",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "threading",
+        "description": "threading",
+        "detail": "threading",
+        "documentation": {}
+    },
+    {
+        "label": "tkinter",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "tkinter",
+        "description": "tkinter",
+        "detail": "tkinter",
+        "documentation": {}
+    },
+    {
+        "label": "ttk",
+        "importPath": "tkinter",
+        "description": "tkinter",
+        "isExtraImport": true,
+        "detail": "tkinter",
+        "documentation": {}
+    },
+    {
+        "label": "filedialog",
+        "importPath": "tkinter",
+        "description": "tkinter",
+        "isExtraImport": true,
+        "detail": "tkinter",
+        "documentation": {}
+    },
+    {
+        "label": "FigureCanvasTkAgg",
+        "importPath": "matplotlib.backends.backend_tkagg",
+        "description": "matplotlib.backends.backend_tkagg",
+        "isExtraImport": true,
+        "detail": "matplotlib.backends.backend_tkagg",
+        "documentation": {}
+    },
+    {
+        "label": "run_pipeline",
+        "importPath": "Audio_Compression.audio_encoder",
+        "description": "Audio_Compression.audio_encoder",
+        "isExtraImport": true,
+        "detail": "Audio_Compression.audio_encoder",
+        "documentation": {}
+    },
+    {
+        "label": "run_pipeline",
+        "importPath": "Video_Compression.video_encoder",
+        "description": "Video_Compression.video_encoder",
+        "isExtraImport": true,
+        "detail": "Video_Compression.video_encoder",
+        "documentation": {}
+    },
+    {
+        "label": "quantize",
+        "kind": 2,
+        "importPath": "Audio_Compression.audio_encoder",
+        "description": "Audio_Compression.audio_encoder",
+        "peekOfCode": "def quantize(data, levels):\n    min_val = np.min(data)\n    max_val = np.max(data)\n    step = (max_val - min_val) / levels\n    quantized = (\n        np.round((data - min_val) / step) * step\n        + min_val\n    )\n    return quantized\n# ───────────────────────────────────────────",
+        "detail": "Audio_Compression.audio_encoder",
+        "documentation": {}
+    },
+    {
+        "label": "run_length_encode",
+        "kind": 2,
+        "importPath": "Audio_Compression.audio_encoder",
+        "description": "Audio_Compression.audio_encoder",
+        "peekOfCode": "def run_length_encode(data):\n    flat = data.flatten()\n    encoded = []\n    count = 1\n    for i in range(1, len(flat)):\n        if flat[i] == flat[i - 1]:\n            count += 1\n        else:\n            encoded.append((flat[i - 1], count))\n            count = 1",
+        "detail": "Audio_Compression.audio_encoder",
+        "documentation": {}
+    },
+    {
+        "label": "run_pipeline",
+        "kind": 2,
+        "importPath": "Audio_Compression.audio_encoder",
+        "description": "Audio_Compression.audio_encoder",
+        "peekOfCode": "def run_pipeline(params, log, progress, done):\n    output_dir = params.get(\"output_dir\", \"outputs\")\n    os.makedirs(output_dir, exist_ok=True)\n    frequency   = params.get(\"frequency\", 440)\n    noise_level = params.get(\"noise\", 0.5)\n    duration    = params.get(\"duration\", 1.0)\n    q_levels    = params.get(\"q_levels\", 16)\n    fs = 44100\n    # ───────────────────────────────────────\n    # STEP 1 → SIGNAL GENERATION",
+        "detail": "Audio_Compression.audio_encoder",
+        "documentation": {}
+    },
+    {
+        "label": "HuffmanNode",
+        "kind": 6,
+        "importPath": "Video_Compression.video_encoder",
+        "description": "Video_Compression.video_encoder",
+        "peekOfCode": "class HuffmanNode:\n    def __init__(self, symbol, freq):\n        self.symbol = symbol\n        self.freq = freq\n        self.left = None\n        self.right = None\n    def __lt__(self, other):\n        return self.freq < other.freq\ndef build_huffman_tree(data):\n    freq = Counter(data)",
+        "detail": "Video_Compression.video_encoder",
+        "documentation": {}
+    },
+    {
+        "label": "dct2",
+        "kind": 2,
+        "importPath": "Video_Compression.video_encoder",
+        "description": "Video_Compression.video_encoder",
+        "peekOfCode": "def dct2(block):\n    return cv2.dct(block.astype(np.float32))\ndef idct2(block):\n    return cv2.idct(block.astype(np.float32))\n# ───────────────────────────────────────────\n# 2. JPEG QUANTIZATION MATRIX & ZIGZAG\n# ───────────────────────────────────────────\nQ = np.array([\n    [16,11,10,16,24,40,51,61],\n    [12,12,14,19,26,58,60,55],",
+        "detail": "Video_Compression.video_encoder",
+        "documentation": {}
+    },
+    {
+        "label": "idct2",
+        "kind": 2,
+        "importPath": "Video_Compression.video_encoder",
+        "description": "Video_Compression.video_encoder",
+        "peekOfCode": "def idct2(block):\n    return cv2.idct(block.astype(np.float32))\n# ───────────────────────────────────────────\n# 2. JPEG QUANTIZATION MATRIX & ZIGZAG\n# ───────────────────────────────────────────\nQ = np.array([\n    [16,11,10,16,24,40,51,61],\n    [12,12,14,19,26,58,60,55],\n    [14,13,16,24,40,57,69,56],\n    [14,17,22,29,51,87,80,62],",
+        "detail": "Video_Compression.video_encoder",
+        "documentation": {}
+    },
+    {
+        "label": "zigzag",
+        "kind": 2,
+        "importPath": "Video_Compression.video_encoder",
+        "description": "Video_Compression.video_encoder",
+        "peekOfCode": "def zigzag(block):\n    return [block[r, c] for r, c in _ZIGZAG_IDX]\ndef rle(data):\n    out = []\n    count = 1\n    for i in range(1, len(data)):\n        if data[i] == data[i - 1]:\n            count += 1\n        else:\n            out.append((data[i - 1], count))",
+        "detail": "Video_Compression.video_encoder",
+        "documentation": {}
+    },
+    {
+        "label": "rle",
+        "kind": 2,
+        "importPath": "Video_Compression.video_encoder",
+        "description": "Video_Compression.video_encoder",
+        "peekOfCode": "def rle(data):\n    out = []\n    count = 1\n    for i in range(1, len(data)):\n        if data[i] == data[i - 1]:\n            count += 1\n        else:\n            out.append((data[i - 1], count))\n            count = 1\n    out.append((data[-1], count))",
+        "detail": "Video_Compression.video_encoder",
+        "documentation": {}
+    },
+    {
+        "label": "build_huffman_tree",
+        "kind": 2,
+        "importPath": "Video_Compression.video_encoder",
+        "description": "Video_Compression.video_encoder",
+        "peekOfCode": "def build_huffman_tree(data):\n    freq = Counter(data)\n    heap = [HuffmanNode(sym, f) for sym, f in freq.items()]\n    heapq.heapify(heap)\n    if len(heap) == 1:\n        node = heapq.heappop(heap)\n        root = HuffmanNode(None, node.freq)\n        root.left = node\n        return root\n    while len(heap) > 1:",
+        "detail": "Video_Compression.video_encoder",
+        "documentation": {}
+    },
+    {
+        "label": "build_codes",
+        "kind": 2,
+        "importPath": "Video_Compression.video_encoder",
+        "description": "Video_Compression.video_encoder",
+        "peekOfCode": "def build_codes(node, prefix=\"\", codebook=None):\n    if codebook is None:\n        codebook = {}\n    if node is not None:\n        if node.symbol is not None:\n            codebook[node.symbol] = prefix\n        build_codes(node.left, prefix + \"0\", codebook)\n        build_codes(node.right, prefix + \"1\", codebook)\n    return codebook\ndef huffman_encode(data_list):",
+        "detail": "Video_Compression.video_encoder",
+        "documentation": {}
+    },
+    {
+        "label": "huffman_encode",
+        "kind": 2,
+        "importPath": "Video_Compression.video_encoder",
+        "description": "Video_Compression.video_encoder",
+        "peekOfCode": "def huffman_encode(data_list):\n    if not data_list:\n        return bytes()\n    symbols = [str(item) for item in data_list]\n    root = build_huffman_tree(symbols)\n    codebook = build_codes(root)\n    bitstring = \"\".join(codebook[sym] for sym in symbols)\n    pad_len = (8 - len(bitstring) % 8) % 8\n    bitstring += \"0\" * pad_len\n    byte_arr = bytearray()",
+        "detail": "Video_Compression.video_encoder",
+        "documentation": {}
+    },
+    {
+        "label": "encode_iframe",
+        "kind": 2,
+        "importPath": "Video_Compression.video_encoder",
+        "description": "Video_Compression.video_encoder",
+        "peekOfCode": "def encode_iframe(frame_channel):\n    h, w = frame_channel.shape\n    comp = np.zeros((h, w), dtype=np.float32)\n    stream = []\n    for i in range(0, h, 8):\n        for j in range(0, w, 8):\n            block = frame_channel[i:i+8, j:j+8].astype(np.float32) - 128\n            q = np.round(dct2(block) / Q)\n            comp[i:i+8, j:j+8] = q\n            stream += rle(zigzag(q))",
+        "detail": "Video_Compression.video_encoder",
+        "documentation": {}
+    },
+    {
+        "label": "decode_iframe",
+        "kind": 2,
+        "importPath": "Video_Compression.video_encoder",
+        "description": "Video_Compression.video_encoder",
+        "peekOfCode": "def decode_iframe(comp):\n    h, w = comp.shape\n    out = np.zeros((h, w), dtype=np.float32)\n    for i in range(0, h, 8):\n        for j in range(0, w, 8):\n            block = comp[i:i+8, j:j+8] * Q\n            out[i:i+8, j:j+8] = idct2(block) + 128\n    return np.clip(out, 0, 255).astype(np.uint8)\n# ───────────────────────────────────────────\n# 5. P-FRAME COMPRESSION (FAST THREE-STEP SEARCH)",
+        "detail": "Video_Compression.video_encoder",
+        "documentation": {}
+    },
+    {
+        "label": "motion_est_fast",
+        "kind": 2,
+        "importPath": "Video_Compression.video_encoder",
+        "description": "Video_Compression.video_encoder",
+        "peekOfCode": "def motion_est_fast(curr, ref, bs=16, search_area=8):\n    h, w = curr.shape\n    residual = np.zeros_like(curr, dtype=np.int16)\n    vectors = []\n    for i in range(0, h, bs):\n        for j in range(0, w, bs):\n            step = max(1, search_area // 2)\n            cx, cy = j, i\n            while step >= 1:\n                best_diff = float('inf')",
+        "detail": "Video_Compression.video_encoder",
+        "documentation": {}
+    },
+    {
+        "label": "encode_residual",
+        "kind": 2,
+        "importPath": "Video_Compression.video_encoder",
+        "description": "Video_Compression.video_encoder",
+        "peekOfCode": "def encode_residual(residual):\n    h, w = residual.shape\n    comp = np.zeros((h, w), dtype=np.float32)\n    stream = []\n    for i in range(0, h, 8):\n        for j in range(0, w, 8):\n            block = residual[i:i+8, j:j+8].astype(np.float32) \n            q = np.round(dct2(block) / (Q * 1.5)) \n            comp[i:i+8, j:j+8] = q\n            stream += rle(zigzag(q))",
+        "detail": "Video_Compression.video_encoder",
+        "documentation": {}
+    },
+    {
+        "label": "decode_residual",
+        "kind": 2,
+        "importPath": "Video_Compression.video_encoder",
+        "description": "Video_Compression.video_encoder",
+        "peekOfCode": "def decode_residual(comp):\n    h, w = comp.shape\n    out = np.zeros((h, w), dtype=np.float32)\n    for i in range(0, h, 8):\n        for j in range(0, w, 8):\n            block = comp[i:i+8, j:j+8] * (Q * 1.5)\n            out[i:i+8, j:j+8] = idct2(block)\n    return out\ndef decode_pframe(ref_recon, vectors, comp_residual, bs=16):\n    h, w = comp_residual.shape",
+        "detail": "Video_Compression.video_encoder",
+        "documentation": {}
+    },
+    {
+        "label": "decode_pframe",
+        "kind": 2,
+        "importPath": "Video_Compression.video_encoder",
+        "description": "Video_Compression.video_encoder",
+        "peekOfCode": "def decode_pframe(ref_recon, vectors, comp_residual, bs=16):\n    h, w = comp_residual.shape\n    decoded_res = decode_residual(comp_residual)\n    recon = np.zeros((h, w), dtype=np.float32)\n    v_idx = 0\n    for i in range(0, h, bs):\n        for j in range(0, w, bs):\n            dy, dx = vectors[v_idx]\n            v_idx += 1\n            recon[i:i+bs, j:j+bs] = ref_recon[i+dy:i+dy+bs, j+dx:j+dx+bs].astype(np.float32) + decoded_res[i:i+bs, j:j+bs]",
+        "detail": "Video_Compression.video_encoder",
+        "documentation": {}
+    },
+    {
+        "label": "pack_frame_huffman",
+        "kind": 2,
+        "importPath": "Video_Compression.video_encoder",
+        "description": "Video_Compression.video_encoder",
+        "peekOfCode": "def pack_frame_huffman(frame_idx, frame_type, data_list):\n    encoded_bytes = huffman_encode(data_list)\n    buf = bytearray()\n    buf += frame_idx.to_bytes(4, 'big')\n    buf += frame_type.to_bytes(1, 'big')\n    buf += len(encoded_bytes).to_bytes(4, 'big')\n    buf += encoded_bytes\n    return buf\ndef psnr(a, b):\n    mse = np.mean((a.astype(np.float32) - b.astype(np.float32)) ** 2)",
+        "detail": "Video_Compression.video_encoder",
+        "documentation": {}
+    },
+    {
+        "label": "psnr",
+        "kind": 2,
+        "importPath": "Video_Compression.video_encoder",
+        "description": "Video_Compression.video_encoder",
+        "peekOfCode": "def psnr(a, b):\n    mse = np.mean((a.astype(np.float32) - b.astype(np.float32)) ** 2)\n    if mse == 0:\n        return np.inf\n    return 10 * np.log10(255 ** 2 / mse)\n# ───────────────────────────────────────────\n# 7. MAIN PIPELINE (FAST 4:2:0 YUV)\n# ───────────────────────────────────────────\ndef run_pipeline(params, log, progress, done):\n    cap = cv2.VideoCapture(params[\"video_path\"])",
+        "detail": "Video_Compression.video_encoder",
+        "documentation": {}
+    },
+    {
+        "label": "run_pipeline",
+        "kind": 2,
+        "importPath": "Video_Compression.video_encoder",
+        "description": "Video_Compression.video_encoder",
+        "peekOfCode": "def run_pipeline(params, log, progress, done):\n    cap = cv2.VideoCapture(params[\"video_path\"])\n    fps = cap.get(cv2.CAP_PROP_FPS) or 25.0\n    reference_channels = [None, None, None] \n    frame_types = []\n    psnr_values = []\n    frame_pairs = []\n    original_size = 0\n    compressed_size = 0\n    max_frames  = params[\"max_frames\"]",
+        "detail": "Video_Compression.video_encoder",
+        "documentation": {}
+    },
+    {
+        "label": "Q",
+        "kind": 5,
+        "importPath": "Video_Compression.video_encoder",
+        "description": "Video_Compression.video_encoder",
+        "peekOfCode": "Q = np.array([\n    [16,11,10,16,24,40,51,61],\n    [12,12,14,19,26,58,60,55],\n    [14,13,16,24,40,57,69,56],\n    [14,17,22,29,51,87,80,62],\n    [18,22,37,56,68,109,103,77],\n    [24,35,55,64,81,104,113,92],\n    [49,64,78,87,103,121,120,101],\n    [72,92,95,98,112,100,103,99]\n], dtype=np.float32)",
+        "detail": "Video_Compression.video_encoder",
+        "documentation": {}
+    },
+    {
+        "label": "_ZIGZAG_IDX",
+        "kind": 5,
+        "importPath": "Video_Compression.video_encoder",
+        "description": "Video_Compression.video_encoder",
+        "peekOfCode": "_ZIGZAG_IDX = [\n    (0,0),(0,1),(1,0),(2,0),(1,1),(0,2),(0,3),(1,2),\n    (2,1),(3,0),(4,0),(3,1),(2,2),(1,3),(0,4),(0,5),\n    (1,4),(2,3),(3,2),(4,1),(5,0),(6,0),(5,1),(4,2),\n    (3,3),(2,4),(1,5),(0,6),(0,7),(1,6),(2,5),(3,4),\n    (4,3),(5,2),(6,1),(7,0),(7,1),(6,2),(5,3),(4,4),\n    (3,5),(2,6),(1,7),(2,7),(3,6),(4,5),(5,4),(6,3),\n    (7,2),(7,3),(6,4),(5,5),(4,6),(3,7),(4,7),(5,6),\n    (6,5),(7,4),(7,5),(6,6),(5,7),(6,7),(7,6),(7,7),\n]",
+        "detail": "Video_Compression.video_encoder",
+        "documentation": {}
+    },
+    {
+        "label": "FRAME_TYPE_I",
+        "kind": 5,
+        "importPath": "Video_Compression.video_encoder",
+        "description": "Video_Compression.video_encoder",
+        "peekOfCode": "FRAME_TYPE_I = 0\nFRAME_TYPE_P = 1\ndef pack_frame_huffman(frame_idx, frame_type, data_list):\n    encoded_bytes = huffman_encode(data_list)\n    buf = bytearray()\n    buf += frame_idx.to_bytes(4, 'big')\n    buf += frame_type.to_bytes(1, 'big')\n    buf += len(encoded_bytes).to_bytes(4, 'big')\n    buf += encoded_bytes\n    return buf",
+        "detail": "Video_Compression.video_encoder",
+        "documentation": {}
+    },
+    {
+        "label": "FRAME_TYPE_P",
+        "kind": 5,
+        "importPath": "Video_Compression.video_encoder",
+        "description": "Video_Compression.video_encoder",
+        "peekOfCode": "FRAME_TYPE_P = 1\ndef pack_frame_huffman(frame_idx, frame_type, data_list):\n    encoded_bytes = huffman_encode(data_list)\n    buf = bytearray()\n    buf += frame_idx.to_bytes(4, 'big')\n    buf += frame_type.to_bytes(1, 'big')\n    buf += len(encoded_bytes).to_bytes(4, 'big')\n    buf += encoded_bytes\n    return buf\ndef psnr(a, b):",
+        "detail": "Video_Compression.video_encoder",
+        "documentation": {}
+    },
+    {
+        "label": "AudioTab",
+        "kind": 6,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "class AudioTab(ttk.Frame):\n    def __init__(self, parent):\n        super().__init__(parent)\n        self.build_ui()\n    def build_ui(self):\n        left  = ttk.Frame(self)\n        left.pack(side=\"left\", fill=\"y\", padx=10, pady=10)\n        right = ttk.Notebook(self)\n        right.pack(side=\"right\", fill=\"both\", expand=True)\n        self.wave_tab  = ttk.Frame(right)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "VideoTab",
+        "kind": 6,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "class VideoTab(ttk.Frame):\n    def __init__(self, parent):\n        super().__init__(parent)\n        self.recon_video_path = None\n        self.build_ui()\n    def build_ui(self):\n        left  = ttk.Frame(self)\n        left.pack(side=\"left\", fill=\"y\", padx=10, pady=10)\n        right = ttk.Notebook(self)\n        right.pack(side=\"right\", fill=\"both\", expand=True)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "App",
+        "kind": 6,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "class App(tk.Tk):\n    def __init__(self):\n        super().__init__()\n        self.title(\"Multimedia Compression Studio\")\n        self.geometry(\"1200x700\")\n        style = ttk.Style()\n        style.theme_use(\"clam\")\n        notebook = ttk.Notebook(self)\n        notebook.pack(fill=\"both\", expand=True)\n        notebook.add(AudioTab(notebook), text=\"Audio\")",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "run_async",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def run_async(func, params, log, progress, done, root):\n    threading.Thread(\n        target=func,\n        args=(\n            params,\n            lambda m: root.after(0, log, m),\n            lambda v: root.after(0, progress, v),\n            lambda *d: root.after(0, done, *d),\n        ),\n        daemon=True,",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "draw_figure",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def draw_figure(container, fig):\n    for widget in container.winfo_children():\n        widget.destroy()\n    canvas = FigureCanvasTkAgg(fig, container)\n    canvas.draw()\n    canvas.get_tk_widget().pack(fill=\"both\", expand=True)\n# ───────────────────────────────────────────\n# AUDIO TAB\n# ───────────────────────────────────────────\nclass AudioTab(ttk.Frame):",
+        "detail": "main",
+        "documentation": {}
+    }
+]
